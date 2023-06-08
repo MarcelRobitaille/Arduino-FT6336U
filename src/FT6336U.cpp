@@ -35,7 +35,9 @@ void FT6336U::begin(void) {
     Wire.begin();
 #endif
     // Int Pin Configuration
-    pinMode(int_n, INPUT);
+    if (int_n < PINS_COUNT) {
+        pinMode(int_n, INPUT);
+    }
     // Reset Pin Configuration
     pinMode(rst_n, OUTPUT);
     digitalWrite(rst_n, LOW);
